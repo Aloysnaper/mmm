@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Suggestion App</title>
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Suggestion App</h1>
+    <form id="ageForm">
+        <label for="yearOfBirth">Enter your year of birth:</label>
+        <input type="number" id="yearOfBirth" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        // JavaScript code for handling the form submission
+        document.getElementById("ageForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const yearOfBirth = parseInt(document.getElementById("yearOfBirth").value);
+            const todayYear = 2023;
+            const userAge = todayYear - yearOfBirth;
+
+            let movieSuggestion;
+            if (userAge > 18) {
+                movieSuggestion = "OPPENHEIMER";
+            } else {
+                movieSuggestion = "BARBIE";
+            }
+
+            const resultElement = document.getElementById("result");
+            resultElement.innerHTML = `Hi, you are ${userAge} years old. You are allowed to watch ${movieSuggestion}.`;
+        });
+    </script>
+</body>
+</html>
